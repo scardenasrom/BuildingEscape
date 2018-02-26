@@ -24,12 +24,19 @@ protected:
 	virtual void BeginPlay() override;
 
 	void OpenDoor();
+	void CloseDoor();
 
 private:
 
 	AActor* ActorThatOpens;
+	float LastDoorOpeningTime;
+	AActor* Owner;
 
 	// Unreal Engine Properties
+	UPROPERTY(EditAnywhere)
+		float ClosingAngle = 0.0f;
+	UPROPERTY(EditAnywhere)
+		float DoorClosingDelay = 1.f;
 	UPROPERTY(EditAnywhere)
 		float OpeningAngle = 0.0f;
 	UPROPERTY(EditAnywhere)
